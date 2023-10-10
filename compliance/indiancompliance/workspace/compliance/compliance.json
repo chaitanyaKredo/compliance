@@ -1,0 +1,32 @@
+{
+ "charts": [],
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Compliance\"}}]",
+ "creation": "2023-09-23 14:47:49.250810",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Compliance",
+ "links": [],
+ "modified": "2023-09-23 14:49:03.041955",
+ "modified_by": "Administrator",
+ "module": "IndianCompliance",
+ "name": "Compliance",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Compliancetask",
+   "label": "Compliances"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [],
+ "title": "Compliance"
+}

@@ -2,18 +2,18 @@
 # For license information, please see license.txt
 
 import frappe
-from frappe.model.document import Document
+from frappe.website.website_generator import WebsiteGenerator
 from frappe.utils.data import getdate, add_days, today, add_months
 
 
 def has_auto_repeat(doc_type, doc_name):
     auto_repeat_count = frappe.db.count("Auto Repeat",
-                                        filters={"doc_type": doc_type, "doc_name": doc_name})
+                                        filters={"reference_doctype": doc_type, "reference_document": doc_name})
 
     return auto_repeat_count > 0
 
 
-class Compliancetask(Document):
+class Compliancetask(WebsiteGenerator):
     def before_insert(self):
         self.escalate = 2
 

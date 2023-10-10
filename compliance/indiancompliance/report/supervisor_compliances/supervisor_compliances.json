@@ -1,0 +1,49 @@
+{
+ "add_total_row": 0,
+ "columns": [
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Select",
+   "label": "SuperVisor",
+   "width": 0
+  }
+ ],
+ "creation": "2023-10-09 14:20:11.962873",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Select",
+   "label": "Supervisor",
+   "mandatory": 0,
+   "options": "user",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2023-10-09 14:20:22.006962",
+ "modified_by": "Administrator",
+ "module": "IndianCompliance",
+ "name": "Supervisor Compliances",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Complianceassignment",
+ "reference_report": "Assignment Report Supervisor",
+ "report_name": "Supervisor Compliances",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Compliance User"
+  },
+  {
+   "role": "Compliance Supervisor"
+  },
+  {
+   "role": "Compliance Manager"
+  }
+ ]
+}

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "autoname": "CT.#####",
  "creation": "2023-09-11 15:59:58.510644",
  "default_view": "List",
@@ -7,6 +8,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "route",
   "function",
   "section",
   "applicability",
@@ -16,17 +18,19 @@
   "enddate",
   "duedate",
   "risk",
-  "assignedto",
-  "supervisor",
   "type",
-  "proofofcompliance",
-  "workingpaper",
+  "column_break_1",
+  "supervisor",
+  "assignedto",
   "entitytype",
   "industry",
   "amended_from",
   "status",
   "escalate",
-  "reminderbefore"
+  "reminderbefore",
+  "proofofcompliance",
+  "workingpaper",
+  "ispublic"
  ],
  "fields": [
   {
@@ -41,7 +45,8 @@
    "fieldname": "section",
    "fieldtype": "Link",
    "label": "Section",
-   "options": "Section"
+   "options": "Section",
+   "reqd": 1
   },
   {
    "fieldname": "applicability",
@@ -59,7 +64,7 @@
    "fieldname": "frequency",
    "fieldtype": "Select",
    "label": "Frequency",
-   "options": "None\nDaily\nAll time\nAnnual\nEvent based\nHalf-yealry\nOne time\nQuarterly\nRenewal"
+   "options": "None\nDaily\nAll time\nAnnual\nEvent based\nHalf-yearly\nOne time\nQuarterly\nRenewal"
   },
   {
    "fieldname": "startdate",
@@ -144,19 +149,38 @@
   {
    "fieldname": "escalate",
    "fieldtype": "Int",
-   "label": "Escalate before (Days)"
+   "label": "Escalate before (Days)",
+   "reqd": 1
   },
   {
    "fieldname": "reminderbefore",
    "fieldtype": "Int",
-   "label": "Remind Before (Days)"
+   "label": "Remind Before (Days)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Compliance Name"
+  },
+  {
+   "default": "0",
+   "fieldname": "ispublic",
+   "fieldtype": "Check",
+   "label": "Is Public"
   }
  ],
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
+ "is_published_field": "ispublic",
  "is_submittable": 1,
  "links": [],
- "modified": "2023-09-11 17:58:10.130464",
+ "modified": "2023-09-23 17:24:03.337593",
  "modified_by": "Administrator",
  "module": "IndianCompliance",
  "name": "Compliancetask",
@@ -176,7 +200,9 @@
    "write": 1
   }
  ],
+ "route": "compliance",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "route"
 }

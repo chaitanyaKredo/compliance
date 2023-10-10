@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_auto_repeat": 1,
+ "allow_guest_to_view": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2023-09-28 10:03:51.195647",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "route",
+  "amended_from",
+  "assignedto",
+  "supervisor",
+  "compliance",
+  "status",
+  "workingpaper",
+  "ispublic",
+  "proofofcompliance",
+  "startdate",
+  "duedate"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Complianceassignment",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "assignedto",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Link",
+   "label": "Supervisor",
+   "options": "User"
+  },
+  {
+   "fieldname": "compliance",
+   "fieldtype": "Link",
+   "label": "Compliance",
+   "options": "Compliancetracker"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Not Started\nIn Progress\nCompleted\nClosed"
+  },
+  {
+   "fieldname": "workingpaper",
+   "fieldtype": "Attach",
+   "label": "Working Paper"
+  },
+  {
+   "default": "0",
+   "fieldname": "ispublic",
+   "fieldtype": "Check",
+   "label": "Is Public"
+  },
+  {
+   "fieldname": "proofofcompliance",
+   "fieldtype": "Attach",
+   "label": "Proof of Compliance"
+  },
+  {
+   "fetch_from": "compliance.startdate",
+   "fieldname": "startdate",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Start Date"
+  },
+  {
+   "fetch_from": "compliance.duedate",
+   "fieldname": "duedate",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Title"
+  }
+ ],
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "is_published_field": "ispublic",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-10-09 18:01:38.718185",
+ "modified_by": "Administrator",
+ "module": "IndianCompliance",
+ "name": "Complianceassignment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Supervisor",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Compliance Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "route": "compliance-assignment",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

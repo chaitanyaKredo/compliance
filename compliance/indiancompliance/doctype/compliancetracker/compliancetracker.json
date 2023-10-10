@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2023-09-26 16:06:39.638008",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "function",
+  "category",
+  "shortname",
+  "applicability",
+  "location",
+  "rules",
+  "section",
+  "frquency",
+  "startdate",
+  "enddate",
+  "duedate",
+  "type",
+  "risk",
+  "reminderbefore",
+  "escalate"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "unique": 1
+  },
+  {
+   "fieldname": "function",
+   "fieldtype": "Data",
+   "label": "Function"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "label": "Category"
+  },
+  {
+   "fieldname": "shortname",
+   "fieldtype": "Data",
+   "label": "Short Name"
+  },
+  {
+   "fieldname": "applicability",
+   "fieldtype": "Select",
+   "label": "Applicability",
+   "options": "Entity\nState\nNone"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Select",
+   "label": "Location",
+   "options": "Karnataka\nNone"
+  },
+  {
+   "fieldname": "rules",
+   "fieldtype": "Data",
+   "label": "Rules"
+  },
+  {
+   "fieldname": "section",
+   "fieldtype": "Data",
+   "label": "Section"
+  },
+  {
+   "fieldname": "frquency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "None\nDaily\nMonthly\nAll time\nAnnual\nEvent based\nHalf-yearly\nOne time\nQuarterly\nRenewal"
+  },
+  {
+   "fieldname": "startdate",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "enddate",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "duedate",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Payment\nFiling\nNone"
+  },
+  {
+   "fieldname": "risk",
+   "fieldtype": "Select",
+   "label": "Risk",
+   "options": "High\nMedium\nLow\nNone"
+  },
+  {
+   "fieldname": "reminderbefore",
+   "fieldtype": "Int",
+   "label": "Remind Before days"
+  },
+  {
+   "fieldname": "escalate",
+   "fieldtype": "Int",
+   "label": "Escalate Before days"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-09-28 16:11:23.865909",
+ "modified_by": "Administrator",
+ "module": "IndianCompliance",
+ "name": "Compliancetracker",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

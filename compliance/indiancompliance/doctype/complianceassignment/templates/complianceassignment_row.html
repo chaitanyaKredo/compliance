@@ -1,0 +1,29 @@
+<table class="table">
+<tbody>
+        <tr class="row">
+          <td class="col"><a href={{doc.route}}>{{ doc.compliance}}</a></td>
+          <td class="col">{{ doc.duedate }}</td>
+          <td class="col">{{ doc.startdate }}</td>
+          <td class="col">{{ doc.status }}</td>
+        </tr>
+    </tbody>
+</table class="table">
+<script>
+    frappe.ready(
+     function getStatusColorClass(status, dueDate) {
+      if (status.toLowerCase() === 'completed') {
+        return 'table-success';
+      } else if (status.toLowerCase() === 'closed') {
+        return 'table-secondary';
+      } else if (status.toLowerCase() === 'not started' && isDueWithinWeek(dueDate,reminder)) {
+        return 'table-danger';
+      } else {
+        return '';
+      }
+    }
+    function isDueWithinWeek(dueDate) {
+      const today = new Date()
+      const due = new Date(dueDate)
+      return Math.round((second - first) / (1000 * 60 * 60 * 24))<7;
+    })
+</script>
