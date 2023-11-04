@@ -10,25 +10,18 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "details_section",
-  "compliance",
-  "assignedto",
-  "column_break_sywt",
   "route",
-  "supervisor",
-  "column_break_afzyu",
-  "column_break_qisq",
+  "compliance",
   "company",
-  "status",
-  "column_break_brpw",
-  "column_break_gf87",
-  "workingpaper",
-  "proofofcompliance",
+  "supervisor",
+  "assignedto",
   "ispublic",
-  "section_break_azkj",
-  "startdate",
+  "proofofcompliance",
+  "duedate",
   "amended_from",
-  "duedate"
+  "startdate",
+  "workingpaper",
+  "status"
  ],
  "fields": [
   {
@@ -83,6 +76,7 @@
   },
   {
    "fetch_from": "compliance.startdate",
+   "fetch_if_empty": 1,
    "fieldname": "startdate",
    "fieldtype": "Date",
    "hidden": 1,
@@ -90,6 +84,7 @@
   },
   {
    "fetch_from": "compliance.duedate",
+   "fetch_if_empty": 1,
    "fieldname": "duedate",
    "fieldtype": "Date",
    "hidden": 1,
@@ -105,36 +100,6 @@
    "fieldtype": "Link",
    "label": "Company",
    "options": "Company"
-  },
-  {
-   "fieldname": "column_break_afzyu",
-   "fieldtype": "Section Break",
-   "label": "Proofs"
-  },
-  {
-   "fieldname": "column_break_sywt",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_brpw",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_gf87",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "details_section",
-   "fieldtype": "Section Break",
-   "label": "Details"
-  },
-  {
-   "fieldname": "column_break_qisq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_azkj",
-   "fieldtype": "Section Break"
   }
  ],
  "has_web_view": 1,
@@ -142,7 +107,7 @@
  "is_published_field": "ispublic",
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-13 14:07:08.484738",
+ "modified": "2023-11-03 19:06:22.508042",
  "modified_by": "Administrator",
  "module": "IndianCompliance",
  "name": "Complianceassignment",
@@ -162,14 +127,17 @@
    "write": 1
   },
   {
+   "amend": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Compliance Supervisor",
+   "select": 1,
    "share": 1,
    "submit": 1,
    "write": 1

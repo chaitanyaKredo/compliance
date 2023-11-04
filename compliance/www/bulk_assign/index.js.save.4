@@ -2,14 +2,15 @@ frappe.ready(function () {
     let complianceData = [];
     let  users = [];
     let  changesList = [];
-   frappe.call({
+    frappe.call({
 	method:'compliance.client.get_dependent_doctypes',
-	args:{doc1:'User',doc2:'Complianceassignment',filters_doc1:{},filters_doc2:{"assignedto": ["=", ""]}},
+	args:{doc1:'User',doc2:'Complianceassignment'},
 	callback: function(response){
 		if(response.message){
 			complianceData = response.message.Complianceassignment;
 			users = response.message.User;
-    			populateTableWithComplianceNames(complianceData,users,changesList)
+			const complianceNames = complianceData.map(item => item.route);
+    			populateTableWithComplianceNames(complianceNames,complianceData,users,changesList)
     			const userNames = users.map(item => item.full_name);
     			populateDropdownsInTable(userNames);
 		}
@@ -21,26 +22,24 @@ frappe.ready(function () {
     });
 });
 
-function populateTableWithComplianceNames(complianceData,userList,changesList) {
+function populateTableWithComplianceNames(complianceNames,complianceData,userList,changesList) {
     const tableBody = document.querySelector('#complianceTable tbody');
-    complianceData.forEach(compliance => {
-        const row = tableBody.insertRow();
+    complianceNames.forEach(name => {
+compliancename        const row = tableBody.insertRow();
         const cell1 = row.insertCell(0);
-        cell1.textContent = compliance.route;
+        cell1.textContent = name;
         const cell2 = row.insertCell(1);
-	cell2.textContent = compliance.duedate
-	const cell3 = row.insertCell(2);
         const userDropdown = createUserDropdown();
-        cell3.appendChild(userDropdown);
+        cell2.appendChild(userDropdown);
         userDropdown.addEventListener('change', function () {
-            trackChanges(compliance.route, userDropdown.value, complianceData,userList,changesList);
+            trackChanges(name, userDropdown.value, complianceData,userList,changesList);
         });
     });
 }
 
 function createUserDropdown() {
     const dropdown = document.createElement('select');
-    dropdown.className = 'form-control  form-select form-select-sm';
+    dropdown.className = 'form-control';
     return dropdown;
 }
 
@@ -70,7 +69,6 @@ function makePostRequest(payload) {
 		args:{docname:'Complianceassignment',docdata_list:payload},
 		callback:function(response){
 			console.log(response.message);
-			frappe.show_alert({message:__('Updated Sucessfully'),indicator:'green'}, 5);
 		}
 	})
 }

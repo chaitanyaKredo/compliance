@@ -13,8 +13,10 @@ def execute(filters=None):
 
 def get_columns():
 	columns = [
-                {"fieldname": "compliance", "fieldtype": "Link", "label": ("Compliance Name"), "options": "Compliancetracker", "width": 200},
+		{"fieldname": "name", "fieldtype": "Link", "label": ("Access Link"), "options": "Complianceassignment", "width": 150},
+		{"fieldname": "route", "fieldtype": "data", "label": ("Task Name"), "width": 400},
                 {"fieldname": "assignedto", "fieldtype": "data", "label": ("User"), "width": 200},
-                {"fieldname":"duedate","fieldtype":"date","label":("Due Date"),"width":200}
+                {"fieldname":"duedate","fieldtype":"date","label":("Due Date"),"width":200},
+		{"fieldname": "compliance", "fieldtype": "Link", "label": ("Compliance"), "options": "Compliancetracker", "width": 400}
         ]
 	return columns

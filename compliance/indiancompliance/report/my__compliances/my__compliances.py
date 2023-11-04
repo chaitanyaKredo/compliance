@@ -16,10 +16,11 @@ def execute(filters=None):
 
 def get_columns():
         columns = [
-                {"fieldname": "compliance", "fieldtype": "Link", "label": ("Compliance Name"),"options":"Compliancetracker" ,"width": 400},
+                {"fieldname":"form_link","fieldtype":"Dynamic_Link","label":("Access Link"),"width":200},
+		{"fieldname": "route", "fieldtype": "Data", "label": ("Task Name") ,"width": 400},
+                {"fieldname": "compliance", "fieldtype": "Link", "label": ("Compliance"),"options":"Compliancetracker" ,"width": 400},
                 {"fieldname":"supervisor", "fieldtype": "data", "label": ("Supervisor"), "width": 200},
                 {"fieldname":"duedate","fieldtype":"date","label":("Due Date"),"width":200},
-                {"fieldname":"form_link","fieldtype":"Dynamic_Link","label":("Access Link"),"width":200},
                 {"fieldname":"function","fieldtype":"data","label":("Function"),"width":200},
         ]
         return columns
