@@ -1,3 +1,4 @@
+
 import frappe
 from datetime import datetime,timedelta
 from dateutil.relativedelta import relativedelta
@@ -71,7 +72,8 @@ def is_in_list(a, list):
 
 
 def make_repeated_entries_for_tasks():
-    compliance_assignments = frappe.db.get_all("Complianceassignment", fields=["*"])
+    all_compliance_assignments = frappe.get_list("Complianceassignment", fields=["*"])
+    compliance_assignments = [record for record in all_compliance_assignments if record.get("duedate") is not None]
     for assignment in compliance_assignments:
         compliancetracker = frappe.db.get_value(
             "Compliancetracker", assignment.compliance, ["*"], as_dict=1
@@ -84,7 +86,12 @@ def make_repeated_entries_for_tasks():
         for next_date_obj in next_dates:
             next_start_date = next_date_obj.get("next_start_date")
             next_due_date = next_date_obj.get("next_due_date")
-            if not {"route":assignment.route,"duedate":next_due_date,"startdate":next_start_date} in compliance_assignments:
+            task = {'route':assignment.route,'duedate':next_due_date,'startdate':next_start_date}
+            existing_record = frappe.get_all(
+                "Complianceassignment",
+                filters={"route": assignment.route, "duedate": next_due_date},
+            )
+            if not existing_record:
                 new_assignment = frappe.new_doc("Complianceassignment")
                 new_assignment.compliance = compliancetracker.name
                 new_assignment.route = assignment.route

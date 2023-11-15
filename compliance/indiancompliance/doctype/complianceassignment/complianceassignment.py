@@ -81,6 +81,24 @@ def make_auto_repeat(**args):
 #                                         Document.assignedto=None
 #                                         Document.supervisor=None
 #                                         Document.save()
+
 class Complianceassignment(Document):
     def after_insert(self):
-        pass
+        compliance = frappe.get_doc("Compliancetracker", self.compliance)
+        reminder = {
+                "name": "_reminder",
+                "before": compliance.get("reminderbefore"),
+                "email": self.assignedto,
+                "message": "This is the reminder on task",
+                "receiver": "assignedto"
+                }
+        escalation = {
+                "name": "_escalate",
+                "before": compliance.get("escalate"),
+                "email": self.supervisor,
+                "message": f'This is the reminder that , a task is due in {compliance.get("escalate")} days',
+                "receiver": "supervisor"
+                }
+        if compliance.get("duedate"):
+        	create_notification(self, compliance, escalation)
+        	create_notification(self, compliance, reminder)

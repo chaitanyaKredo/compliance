@@ -33,7 +33,7 @@ frappe.ready(function () {
     filteredItems.forEach(item => {
       const row = table.insertRow();
       row.setAttribute('data-item-id', item.name);
-      row.classList.add('item-row'); 
+      row.classList.add('item-row');
       const cell1 = row.insertCell(0);
       cell1.textContent = item.compliance;
       const cell2 = row.insertCell(1);
@@ -56,9 +56,9 @@ frappe.ready(function () {
 
 
     table.addEventListener('click', function (event) {
-      const clickedRow = event.target.closest('.item-row'); 
+      const clickedRow = event.target.closest('.item-row');
       if (clickedRow) {
-        const itemId = clickedRow.getAttribute('data-item-id'); 
+        const itemId = clickedRow.getAttribute('data-item-id');
         if (itemId) {
           const selectedItem = filteredItems.find(item => item.name === itemId);
           if (selectedItem) {

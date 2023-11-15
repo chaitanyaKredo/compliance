@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:compliance",
+ "creation": "2023-11-10 12:13:27.280376",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "shortname",
+  "frquency",
+  "startdate",
+  "enddate",
+  "duedate",
+  "compliance",
+  "issubscribed"
+ ],
+ "fields": [
+  {
+   "fetch_from": "compliance.title",
+   "fetch_if_empty": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title`"
+  },
+  {
+   "fetch_from": "compliance.shortname",
+   "fieldname": "shortname",
+   "fieldtype": "Data",
+   "label": "Short Name"
+  },
+  {
+   "fetch_from": "compliance.frquency",
+   "fieldname": "frquency",
+   "fieldtype": "Data",
+   "label": "Frequency"
+  },
+  {
+   "fetch_from": "compliance.startdate",
+   "fieldname": "startdate",
+   "fieldtype": "Data",
+   "label": "Start Date"
+  },
+  {
+   "fetch_from": "compliance.enddate",
+   "fieldname": "enddate",
+   "fieldtype": "Data",
+   "label": "End Date"
+  },
+  {
+   "fetch_from": "compliance.duedate",
+   "fetch_if_empty": 1,
+   "fieldname": "duedate",
+   "fieldtype": "Data",
+   "label": "duedate"
+  },
+  {
+   "fieldname": "compliance",
+   "fieldtype": "Link",
+   "label": "Compliance",
+   "options": "Compliancetracker",
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "issubscribed",
+   "fieldtype": "Check",
+   "label": "Is Subscribed"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-15 11:33:27.447585",
+ "modified_by": "Administrator",
+ "module": "IndianCompliance",
+ "name": "Subscription",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
